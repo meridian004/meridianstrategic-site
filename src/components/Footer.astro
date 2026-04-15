@@ -4,32 +4,33 @@ const year = new Date().getFullYear();
 ---
 
 <footer class="bg-(--color-ink) text-(--color-ivory) mt-32">
-  <div class="max-w-[1280px] mx-auto px-6 pt-20 pb-12 grid grid-cols-1 md:grid-cols-12 gap-10">
+  <div class="max-w-[1280px] mx-auto px-6 pt-24 pb-16 grid grid-cols-1 md:grid-cols-12 gap-x-10 gap-y-14">
     <div class="md:col-span-5">
       <Logo variant="inverse" size="lg" />
-      <p class="mt-6 text-(--color-ivory)/70 max-w-md leading-relaxed font-serif">
+      <p class="mt-8 text-(--color-ivory)/70 max-w-md leading-[1.75] font-serif">
         An ESG advisory firm helping public and private companies turn
         disclosure, policy, and stakeholder pressure into clear strategy and
         durable advantage.
       </p>
-      <p class="mt-6 text-xs text-(--color-ivory)/50 uppercase tracking-[0.14em]">
+      <p class="mt-10 text-[11px] text-(--color-ivory)/50 uppercase tracking-[0.18em]">
         Independent · Senior-led · United States
       </p>
     </div>
 
     <div class="md:col-span-2">
-      <p class="text-xs uppercase tracking-[0.14em] text-(--color-brass) mb-4">Firm</p>
-      <ul class="space-y-2 text-sm">
-        <li><a href="#capabilities" class="text-(--color-ivory)/80 hover:text-(--color-ivory)">Capabilities</a></li>
-        <li><a href="#approach" class="text-(--color-ivory)/80 hover:text-(--color-ivory)">Approach</a></li>
-        <li><a href="#insights" class="text-(--color-ivory)/80 hover:text-(--color-ivory)">Insights</a></li>
-        <li><a href="#contact" class="text-(--color-ivory)/80 hover:text-(--color-ivory)">Contact</a></li>
+      <p class="text-[11px] uppercase tracking-[0.18em] text-(--color-brass) mb-6">Firm</p>
+      <ul class="space-y-3 text-sm">
+        <li><a href="#capabilities" class="text-(--color-ivory)/80 hover:text-(--color-ivory) transition-colors">Capabilities</a></li>
+        <li><a href="#representation" class="text-(--color-ivory)/80 hover:text-(--color-ivory) transition-colors">Representation</a></li>
+        <li><a href="#approach" class="text-(--color-ivory)/80 hover:text-(--color-ivory) transition-colors">Approach</a></li>
+        <li><a href="#insights" class="text-(--color-ivory)/80 hover:text-(--color-ivory) transition-colors">Insights</a></li>
+        <li><a href="#contact" class="text-(--color-ivory)/80 hover:text-(--color-ivory) transition-colors">Contact</a></li>
       </ul>
     </div>
 
     <div class="md:col-span-2">
-      <p class="text-xs uppercase tracking-[0.14em] text-(--color-brass) mb-4">Practice areas</p>
-      <ul class="space-y-2 text-sm">
+      <p class="text-[11px] uppercase tracking-[0.18em] text-(--color-brass) mb-6">Practice areas</p>
+      <ul class="space-y-3 text-sm">
         <li class="text-(--color-ivory)/80">Strategy & materiality</li>
         <li class="text-(--color-ivory)/80">Disclosure & reporting</li>
         <li class="text-(--color-ivory)/80">Stakeholder & policy</li>
@@ -39,19 +40,19 @@ const year = new Date().getFullYear();
     </div>
 
     <div class="md:col-span-3">
-      <p class="text-xs uppercase tracking-[0.14em] text-(--color-brass) mb-4">Contact</p>
-      <ul class="space-y-2 text-sm">
+      <p class="text-[11px] uppercase tracking-[0.18em] text-(--color-brass) mb-6">Contact</p>
+      <ul class="space-y-3 text-sm">
         <li>
           <a
             href="mailto:wes@meridianstrategic.io"
-            class="text-(--color-ivory)/80 hover:text-(--color-ivory) inline-block"
+            class="text-(--color-ivory)/80 hover:text-(--color-ivory) transition-colors inline-block"
             style="overflow-wrap: anywhere; word-break: normal;"
           >
             wes@meridianstrategic.io
           </a>
         </li>
         <li>
-          <a href="#contact" class="text-(--color-ivory)/80 hover:text-(--color-ivory)">
+          <a href="#contact" class="text-(--color-ivory)/80 hover:text-(--color-ivory) transition-colors">
             Begin engagement →
           </a>
         </li>
@@ -60,9 +61,9 @@ const year = new Date().getFullYear();
   </div>
 
   <div class="border-t border-white/10">
-    <div class="max-w-[1280px] mx-auto px-6 py-6 flex flex-col md:flex-row items-start md:items-center justify-between text-xs text-(--color-ivory)/50 gap-2">
+    <div class="max-w-[1280px] mx-auto px-6 py-8 flex flex-col md:flex-row items-start md:items-center justify-between text-[11px] text-(--color-ivory)/50 gap-3">
       <p>© {year} Meridian Strategic. All rights reserved.</p>
-      <p>Built to be small, senior, and accountable.</p>
+      <p class="tracking-[0.02em]">Built to be small, senior, and accountable.</p>
     </div>
   </div>
 </footer>

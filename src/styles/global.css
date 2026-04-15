@@ -155,11 +155,12 @@ p { max-width: 65ch; }
 /* Numeric/stat style */
 .stat {
   font-family: var(--font-sans);
-  font-size: clamp(3rem, 5vw, 4.5rem);
+  font-size: clamp(2.25rem, 3.6vw, 3.25rem);
   line-height: 1;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.035em;
   color: var(--color-forest);
-  font-weight: 600;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
 }
 
 /* Subtle fade-in on scroll — intersection observer hooks into [data-reveal] */

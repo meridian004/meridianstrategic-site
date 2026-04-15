@@ -32,19 +32,19 @@ const stats = [
       </h2>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-14">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-14 lg:gap-x-16">
       {stats.map((s) => (
-        <div data-reveal class="border-t-2 border-(--color-forest) pt-6">
+        <div data-reveal class="border-t-2 border-(--color-forest) pt-7 min-w-0">
           <p class="stat">{s.value}</p>
-          <p class="mt-5 text-(--color-ink) text-base leading-relaxed font-serif">{s.label}</p>
-          <p class="mt-4 text-xs uppercase tracking-[0.12em] text-(--color-ink-faint)">
+          <p class="mt-6 text-(--color-ink) text-[15px] leading-[1.65] font-serif">{s.label}</p>
+          <p class="mt-5 text-[11px] uppercase tracking-[0.14em] text-(--color-ink-faint)">
             Source: {s.source}
           </p>
         </div>
       ))}
     </div>
 
-    <p class="mt-12 text-sm text-(--color-ink-faint) max-w-3xl italic">
+    <p class="mt-16 text-sm text-(--color-ink-faint) max-w-3xl italic">
       Figures are illustrative and sourced from publicly available reporting;
       engagement-level numbers are developed with clients under NDA.
     </p>
