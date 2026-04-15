@@ -1,0 +1,193 @@
+---
+import Base from "../layouts/Base.astro";
+
+const title = "Contact";
+const description =
+  "Start a confidential conversation with Meridian Strategic about sustainability disclosure, ESG strategy, or stakeholder engagement.";
+---
+
+<Base title={title} description={description}>
+  <section class="bg-(--color-bg) border-b border-(--color-line)">
+    <div class="max-w-[1280px] mx-auto px-6 pt-24 pb-32 md:pt-32 md:pb-40">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-20">
+
+        <!-- Left: copy + form -->
+        <div class="md:col-span-7">
+          <p class="eyebrow mb-4">Begin</p>
+          <h1
+            class="font-serif text-4xl md:text-5xl leading-[1.08] text-(--color-ink) font-light mb-8"
+          >
+            Start a conversation.
+          </h1>
+          <p class="text-lg text-(--color-ink-muted) leading-relaxed max-w-xl mb-12 font-serif">
+            An initial conversation is 45 minutes, confidential, and at no cost.
+            You leave with a point of view on your situation, engagement or not.
+          </p>
+
+          <!-- Contact form -->
+          <form
+            id="contact-form"
+            class="space-y-6 max-w-xl"
+            action="https://formsubmit.co/wes@meridianstrategic.io"
+            method="POST"
+          >
+            <!-- Anti-spam -->
+            <input type="text" name="_honey" class="hidden" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_next" value="https://meridianstrategic.io/contact?sent=true" />
+            <input type="hidden" name="_subject" value="Meridian Strategic - New inquiry" />
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label for="name" class="block text-xs font-sans uppercase tracking-[0.12em] text-(--color-ink-faint) mb-2">
+                  Name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  class="w-full px-4 py-3 bg-(--color-ivory) border border-(--color-line) text-(--color-ink) text-sm font-sans placeholder:text-(--color-ink-faint) focus:outline-none focus:border-(--color-forest) transition-colors"
+                  placeholder="Full name"
+                />
+              </div>
+              <div>
+                <label for="email" class="block text-xs font-sans uppercase tracking-[0.12em] text-(--color-ink-faint) mb-2">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  class="w-full px-4 py-3 bg-(--color-ivory) border border-(--color-line) text-(--color-ink) text-sm font-sans placeholder:text-(--color-ink-faint) focus:outline-none focus:border-(--color-forest) transition-colors"
+                  placeholder="you@company.com"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label for="company" class="block text-xs font-sans uppercase tracking-[0.12em] text-(--color-ink-faint) mb-2">
+                Company
+              </label>
+              <input
+                type="text"
+                id="company"
+                name="company"
+                class="w-full px-4 py-3 bg-(--color-ivory) border border-(--color-line) text-(--color-ink) text-sm font-sans placeholder:text-(--color-ink-faint) focus:outline-none focus:border-(--color-forest) transition-colors"
+                placeholder="Organization name"
+              />
+            </div>
+
+            <div>
+              <label for="topic" class="block text-xs font-sans uppercase tracking-[0.12em] text-(--color-ink-faint) mb-2">
+                Topic
+              </label>
+              <select
+                id="topic"
+                name="topic"
+                class="w-full px-4 py-3 bg-(--color-ivory) border border-(--color-line) text-(--color-ink) text-sm font-sans focus:outline-none focus:border-(--color-forest) transition-colors"
+              >
+                <option value="">Select a topic</option>
+                <option value="disclosure">Disclosure & reporting (CSRD, ISSB, SEC)</option>
+                <option value="strategy">Sustainability strategy & materiality</option>
+                <option value="stakeholder">Stakeholder & policy engagement</option>
+                <option value="representation">Representation & access</option>
+                <option value="transition">Transition planning</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="message" class="block text-xs font-sans uppercase tracking-[0.12em] text-(--color-ink-faint) mb-2">
+                Message
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                rows="4"
+                class="w-full px-4 py-3 bg-(--color-ivory) border border-(--color-line) text-(--color-ink) text-sm font-sans placeholder:text-(--color-ink-faint) focus:outline-none focus:border-(--color-forest) transition-colors resize-none"
+                placeholder="Brief context on what you're working through."
+              ></textarea>
+            </div>
+
+            <button
+              type="submit"
+              class="inline-flex items-center justify-center px-8 py-4 bg-(--color-forest) text-(--color-ivory) text-sm font-medium hover:bg-(--color-forest-dark) transition-colors"
+            >
+              Send inquiry
+            </button>
+          </form>
+
+          <!-- Success message (shown via query param) -->
+          <div id="sent-confirmation" class="hidden mt-8 p-6 bg-(--color-surface) border border-(--color-forest) text-sm text-(--color-ink)">
+            <p class="font-medium text-(--color-forest) mb-1">Inquiry received.</p>
+            <p class="text-(--color-ink-muted)">Wes will respond within one business day.</p>
+          </div>
+        </div>
+
+        <!-- Right: direct contact + QR -->
+        <div class="md:col-span-4 md:col-start-9">
+          <div class="sticky top-24 space-y-10">
+            <!-- Direct email -->
+            <div>
+              <p class="text-xs font-sans uppercase tracking-[0.12em] text-(--color-ink-faint) mb-3">Email directly</p>
+              <a
+                href="mailto:wes@meridianstrategic.io?subject=Meridian%20Strategic%20-%20Initial%20Conversation"
+                class="text-lg text-(--color-forest) font-medium hover:text-(--color-brass) transition-colors inline-block"
+                style="overflow-wrap: anywhere;"
+              >
+                wes@meridianstrategic.io
+              </a>
+            </div>
+
+            <!-- Response time -->
+            <div>
+              <p class="text-xs font-sans uppercase tracking-[0.12em] text-(--color-ink-faint) mb-3">Response time</p>
+              <p class="text-sm text-(--color-ink-muted)">Within one business day.</p>
+            </div>
+
+            <!-- What to expect -->
+            <div>
+              <p class="text-xs font-sans uppercase tracking-[0.12em] text-(--color-ink-faint) mb-3">Initial conversation</p>
+              <ul class="space-y-2 text-sm text-(--color-ink-muted)">
+                <li class="flex items-start gap-2">
+                  <span class="mt-1.5 w-1 h-1 rounded-full bg-(--color-forest) shrink-0"></span>
+                  <span>45 minutes, confidential</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="mt-1.5 w-1 h-1 rounded-full bg-(--color-forest) shrink-0"></span>
+                  <span>No cost, no obligation</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="mt-1.5 w-1 h-1 rounded-full bg-(--color-forest) shrink-0"></span>
+                  <span>You leave with a point of view</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- QR code -->
+            <div class="pt-8 border-t border-(--color-line)">
+              <p class="text-xs font-sans uppercase tracking-[0.12em] text-(--color-ink-faint) mb-4">Share this page</p>
+              <div class="w-28 h-28">
+                <img src="/qr-code.svg" alt="QR code for meridianstrategic.io" width="112" height="112" loading="lazy" />
+              </div>
+              <p class="mt-2 text-[10px] text-(--color-ink-faint)">meridianstrategic.io</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Show confirmation if redirected after form submit -->
+  <script is:inline>
+    if (window.location.search.includes('sent=true')) {
+      const form = document.getElementById('contact-form');
+      const confirmation = document.getElementById('sent-confirmation');
+      if (form) form.style.display = 'none';
+      if (confirmation) confirmation.classList.remove('hidden');
+    }
+  </script>
+</Base>

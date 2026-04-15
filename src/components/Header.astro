@@ -1,17 +1,20 @@
 ---
 import Logo from "./Logo.astro";
 
+const isHome = Astro.url.pathname === "/" || Astro.url.pathname === "";
+const prefix = isHome ? "" : "/";
+
 const nav = [
-  { href: "#capabilities", label: "Capabilities" },
-  { href: "#representation", label: "Representation" },
-  { href: "#approach", label: "Approach" },
-  { href: "#insights", label: "Insights" },
+  { href: `${prefix}#capabilities`, label: "Capabilities" },
+  { href: `${prefix}#representation`, label: "Representation" },
+  { href: `${prefix}#approach`, label: "Approach" },
+  { href: `${prefix}#insights`, label: "Insights" },
 ];
 ---
 
 <header class="border-b border-(--color-line) bg-(--color-bg)/92 backdrop-blur-sm sticky top-0 z-40">
   <div class="max-w-[1280px] mx-auto px-6 h-16 flex items-center justify-between">
-    <a href="/" aria-label="Meridian Strategic — home" class="flex-shrink-0">
+    <a href="/" aria-label="Meridian Strategic - home" class="flex-shrink-0">
       <Logo size="sm" />
     </a>
 
@@ -28,7 +31,7 @@ const nav = [
       ))}
       <div class="h-4 w-px bg-(--color-line)"></div>
       <a
-        href="#contact"
+        href="/contact"
         class="px-5 py-2 bg-(--color-forest) text-(--color-ivory) text-[13px] font-medium hover:bg-(--color-forest-dark) transition-colors"
         style="transition: all 120ms cubic-bezier(0.25, 0.46, 0.45, 0.94);"
       >
@@ -37,6 +40,6 @@ const nav = [
     </nav>
 
     <!-- Mobile contact -->
-    <a href="#contact" class="md:hidden text-[13px] font-medium text-(--color-forest)">Contact</a>
+    <a href="/contact" class="md:hidden text-[13px] font-medium text-(--color-forest)">Contact</a>
   </div>
 </header>

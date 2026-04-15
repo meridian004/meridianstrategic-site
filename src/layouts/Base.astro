@@ -18,7 +18,7 @@ const {
 } = Astro.props;
 
 const siteName = "Meridian Strategic";
-const fullTitle = title === siteName ? title : `${title} — ${siteName}`;
+const fullTitle = title === siteName ? title : `${title} | ${siteName}`;
 const canonicalURL = new URL(canonical ?? Astro.url.pathname, Astro.site);
 ---
 
