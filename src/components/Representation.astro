@@ -1,0 +1,100 @@
+---
+// Representation & access — a dedicated practice area for underrepresented
+// stakeholders in ESG policy and disclosure. This is substantive advisory,
+// not symbolic language. Clients are tribal nations and enterprises,
+// environmental-justice coalitions, and minority-led capital coalitions
+// whose interests are materially affected by disclosure and policy regimes
+// but who are often structurally excluded from the rulemaking process.
+
+const clients = [
+  {
+    label: "Tribal nations & enterprises",
+    detail:
+      "Tribal governments, tribal enterprises, and intertribal coalitions navigating ESG disclosure pressure, federal climate policy shifts, and treaty-based consultation rights.",
+  },
+  {
+    label: "Environmental-justice coalitions",
+    detail:
+      "Community-based organizations working to participate meaningfully in SEC, state, and international disclosure rulemakings whose outcomes shape their members' exposure to environmental harm.",
+  },
+  {
+    label: "Minority-led capital coalitions",
+    detail:
+      "BIPOC-led investment platforms, CDFI networks, and minority-focused funds engaging with corporate disclosure and stewardship on behalf of historically excluded LPs.",
+  },
+];
+
+const scope = [
+  "Rulemaking participation — technical comments, testimony, and coalition drafting",
+  "Tribal consultation strategy under federal climate and energy policy",
+  "Disclosure and stewardship strategy for underrepresented asset owners",
+  "Coalition formation across trade, policy, and community organizations",
+];
+---
+
+<section id="representation" class="bg-(--color-ink) text-(--color-ivory) border-b border-white/5 scroll-mt-16">
+  <div class="max-w-[1280px] mx-auto px-6 py-28 md:py-36">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-10 mb-14 items-end">
+      <div class="md:col-span-7" data-reveal>
+        <p class="eyebrow mb-4 text-(--color-brass)">Representation & access</p>
+        <h2 class="font-sans text-4xl md:text-5xl leading-[1.08] text-(--color-ivory) font-light">
+          Disclosure shapes who gets heard. <span class="italic text-(--color-brass)">We represent the voices most often left out of it.</span>
+        </h2>
+      </div>
+      <div class="md:col-span-4 md:col-start-9 text-(--color-ivory)/75 leading-relaxed font-serif" data-reveal>
+        <p>
+          ESG disclosure and policy regimes are written largely by and for
+          well-resourced incumbents. A dedicated practice at Meridian brings
+          that same senior technical depth to communities whose material
+          interests are at stake but who are often structurally absent from the
+          record.
+        </p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/10 mb-14" data-reveal>
+      {clients.map((c) => (
+        <article class="bg-(--color-ink) p-8 md:p-10 flex flex-col">
+          <p class="text-xs uppercase tracking-[0.14em] text-(--color-brass) mb-4">{c.label}</p>
+          <p class="text-sm text-(--color-ivory)/80 leading-relaxed font-serif">{c.detail}</p>
+        </article>
+      ))}
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-10" data-reveal>
+      <div class="md:col-span-5">
+        <p class="text-xs uppercase tracking-[0.14em] text-(--color-brass) mb-4">Scope of engagement</p>
+        <ul class="space-y-3 text-(--color-ivory)/85 font-serif">
+          {scope.map((s) => (
+            <li class="flex items-start gap-3 leading-relaxed">
+              <span class="mt-2 w-1 h-1 rounded-full bg-(--color-brass) shrink-0"></span>
+              <span>{s}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div class="md:col-span-6 md:col-start-7 text-(--color-ivory)/75 font-serif leading-relaxed space-y-4">
+        <p>
+          The work is the same work we do anywhere else: materiality analysis,
+          disclosure architecture, policy engagement, stakeholder strategy. The
+          difference is who it serves.
+        </p>
+        <p>
+          We take this practice on a sliding-fee basis for eligible tribal and
+          community-based organizations, and at standard rates for underrepresented
+          capital coalitions and their advisors. Inquiries are confidential.
+        </p>
+      </div>
+    </div>
+
+    <div class="mt-14 flex justify-end" data-reveal>
+      <a
+        href="mailto:wes@meridianstrategic.io?subject=Meridian%20Strategic%20%E2%80%94%20representation%20practice"
+        class="text-sm text-(--color-brass) font-medium hover:text-(--color-ivory) transition-colors duration-120 flex items-center gap-2"
+      >
+        Discuss a representation engagement
+        <span aria-hidden="true">→</span>
+      </a>
+    </div>
+  </div>
+</section>
