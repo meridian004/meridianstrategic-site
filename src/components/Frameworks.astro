@@ -60,7 +60,7 @@ const frameworks = [
     <div class="grid grid-cols-1 md:grid-cols-12 gap-10 mb-20">
       <div class="md:col-span-6" data-reveal>
         <p class="eyebrow mb-4">Framework fluency</p>
-        <h2 class="font-sans text-(--color-ink)" style="font-size: var(--text-display); line-height: 1.05; letter-spacing: var(--tracking-display); font-weight: 400;">
+        <h2 class="font-serif text-(--color-ink)" style="font-size: var(--text-display); line-height: 1.05; letter-spacing: var(--tracking-display); font-weight: 400;">
           The vocabulary of<span class="italic text-(--color-forest)"> modern disclosure regimes.</span>
         </h2>
       </div>
@@ -74,7 +74,7 @@ const frameworks = [
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" data-reveal>
       {frameworks.map((f) => (
         <article
-          class="group relative bg-(--color-ivory) border border-(--color-line) rounded-sm overflow-hidden hover:border-(--color-ink) hover:shadow-(--shadow-card) transition-all duration-120 flex flex-col"
+          class="group relative bg-(--color-ivory) border border-(--color-line) overflow-hidden hover:border-(--color-ink) hover:shadow-(--shadow-card) transition-all duration-120 flex flex-col"
           style="transition: all 120ms cubic-bezier(0.25, 0.46, 0.45, 0.94);"
         >
           {/* Top accent bar */}
@@ -83,10 +83,10 @@ const frameworks = [
           <div class="p-6 flex flex-col flex-1">
             {/* Type + Est */}
             <div class="flex items-start justify-between mb-5 pb-4 border-b border-(--color-line)">
-              <p class="text-xs font-mono uppercase tracking-tight text-(--color-ink-faint)">
+              <p class="text-xs font-sans uppercase tracking-tight text-(--color-ink-faint)">
                 {f.type}
               </p>
-              <p class="text-xs font-mono uppercase tracking-tight text-(--color-ink-faint)">
+              <p class="text-xs font-sans uppercase tracking-tight text-(--color-ink-faint)">
                 {f.est}
               </p>
             </div>
@@ -108,7 +108,7 @@ const frameworks = [
 
             {/* Region footer */}
             <div class="pt-4 border-t border-(--color-line)">
-              <span class="text-xs font-mono uppercase tracking-tight text-(--color-ink-muted)">
+              <span class="text-xs font-sans uppercase tracking-tight text-(--color-ink-muted)">
                 {f.region}
               </span>
             </div>

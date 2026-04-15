@@ -1,15 +1,15 @@
 ---
-// Meridian Strategic — logo system (v2, tech-minimal)
+// Meridian Strategic — logo system (v4, disc + waterline)
 //
-// Mark: an asymmetric precision-instrument mark.
-//  - A vertical meridian bar (forest) — semantically correct (a meridian is
-//    a vertical line of longitude, not horizontal as in v1).
-//  - A short horizon tick extending right from the meridian's midpoint
-//    (brass) — the observer's bearing at the intersection.
-//  - A small hollow circle at the intersection — the point of reference.
+// Mark: a solid disc with a flowing waterline passing through.
+//   - Solid disc: mass, presence, the body being measured.
+//   - Brass wave crossing the disc at lower third, extending beyond:
+//     the meridian as water, flow, a reference that exists past the frame.
 //
-// Wordmark: Inter at tight tracking for "Meridian" (primary), small-caps
-// Inter for "STRATEGIC" below with brass separator.
+// Wordmark: Source Serif 4 (the site's voice font) at weight 400.
+// "STRATEGIC" in sans caps, tighter tracking (advisory-grade, not decorative).
+//
+// Matches the McKinsey/PwC advisory playbook: serif for voice, sans for system.
 
 interface Props {
   variant?: "default" | "inverse" | "stacked" | "mark-only";
@@ -20,55 +20,51 @@ interface Props {
 const { variant = "default", size = "md", class: className = "" } = Astro.props;
 
 const markSize = size === "sm" ? 22 : size === "lg" ? 44 : 30;
-const wordmarkClass = size === "sm" ? "text-base" : size === "lg" ? "text-2xl" : "text-xl";
 
 const inkColor =
   variant === "inverse" ? "var(--color-ivory)" : "var(--color-ink)";
 const brassColor = "var(--color-brass)";
 const mutedColor =
-  variant === "inverse" ? "rgba(249,244,232,0.62)" : "var(--color-ink-muted)";
+  variant === "inverse" ? "rgba(249,244,232,0.55)" : "var(--color-ink-muted)";
+const discFill =
+  variant === "inverse" ? "var(--color-ivory)" : "var(--color-forest)";
 
-// Shared mark render as a snippet-like function — keeps SVG geometry in one place
-const markStroke = variant === "inverse" ? "var(--color-ivory)" : "var(--color-forest)";
+// Wordmark sizing — serif, weight 400 (advisory, not bold)
+const nameSize = size === "sm" ? "17px" : size === "lg" ? "28px" : "22px";
+const descSize = size === "sm" ? "9px" : size === "lg" ? "11px" : "10px";
 ---
 
 {variant === "stacked" ? (
-  <div class={`inline-flex flex-col items-center gap-3 ${className}`}>
+  <div class={`inline-flex flex-col items-center gap-4 ${className}`}>
     <svg width={markSize * 2} height={markSize * 2} viewBox="0 0 32 32" aria-hidden="true" class="shrink-0">
-      {/* Vertical meridian bar */}
-      <line x1="12" y1="3" x2="12" y2="29" stroke={markStroke} stroke-width="2.25" stroke-linecap="square" />
-      {/* Horizon tick extending right from midpoint */}
-      <line x1="12" y1="16" x2="26" y2="16" stroke={brassColor} stroke-width="1.5" stroke-linecap="round" />
-      {/* Point of reference */}
-      <circle cx="12" cy="16" r="2.25" fill="none" stroke={brassColor} stroke-width="1.25" />
+      <circle cx="16" cy="16" r="11" fill={discFill} />
+      <path d="M 4 20 Q 10 17, 16 20 T 28 20" fill="none" stroke={brassColor} stroke-width="1.75" stroke-linecap="round" />
     </svg>
     <div class="flex flex-col items-center">
-      <span class="font-sans font-medium tracking-[-0.02em]" style={`font-size: ${markSize * 1.05}px; color: ${inkColor}; line-height: 1;`}>
+      <span class="font-serif" style={`font-size: ${Number(nameSize.replace('px','')) * 1.3}px; font-weight: 400; letter-spacing: -0.015em; color: ${inkColor}; line-height: 1;`}>
         Meridian
       </span>
-      <span class="font-sans text-[11px] font-medium tracking-[0.32em] mt-2 uppercase" style={`color: ${mutedColor};`}>
+      <span class="font-sans uppercase" style={`font-size: ${descSize}; font-weight: 500; letter-spacing: 0.15em; margin-top: 8px; color: ${mutedColor};`}>
         Strategic
       </span>
     </div>
   </div>
 ) : variant === "mark-only" ? (
   <svg width={markSize} height={markSize} viewBox="0 0 32 32" aria-label="Meridian Strategic" class={`shrink-0 ${className}`}>
-    <line x1="12" y1="3" x2="12" y2="29" stroke={markStroke} stroke-width="2.5" stroke-linecap="square" />
-    <line x1="12" y1="16" x2="26" y2="16" stroke={brassColor} stroke-width="1.75" stroke-linecap="round" />
-    <circle cx="12" cy="16" r="2.25" fill="none" stroke={brassColor} stroke-width="1.5" />
+    <circle cx="16" cy="16" r="11" fill={discFill} />
+    <path d="M 4 20 Q 10 17, 16 20 T 28 20" fill="none" stroke={brassColor} stroke-width="2" stroke-linecap="round" />
   </svg>
 ) : (
   <div class={`inline-flex items-center gap-3 ${className}`}>
     <svg width={markSize} height={markSize} viewBox="0 0 32 32" aria-hidden="true" class="shrink-0">
-      <line x1="12" y1="3" x2="12" y2="29" stroke={markStroke} stroke-width="2.25" stroke-linecap="square" />
-      <line x1="12" y1="16" x2="26" y2="16" stroke={brassColor} stroke-width="1.5" stroke-linecap="round" />
-      <circle cx="12" cy="16" r="2.25" fill="none" stroke={brassColor} stroke-width="1.25" />
+      <circle cx="16" cy="16" r="11" fill={discFill} />
+      <path d="M 4 20 Q 10 17, 16 20 T 28 20" fill="none" stroke={brassColor} stroke-width="1.75" stroke-linecap="round" />
     </svg>
     <div class="flex flex-col leading-none">
-      <span class={`font-sans font-medium tracking-[-0.015em] ${wordmarkClass}`} style={`color: ${inkColor};`}>
+      <span class="font-serif" style={`font-size: ${nameSize}; font-weight: 400; letter-spacing: -0.015em; color: ${inkColor}; line-height: 1;`}>
         Meridian
       </span>
-      <span class="font-sans text-[10px] font-medium tracking-[0.32em] mt-1.5 uppercase" style={`color: ${mutedColor};`}>
+      <span class="font-sans uppercase" style={`font-size: ${descSize}; font-weight: 500; letter-spacing: 0.15em; margin-top: 5px; color: ${mutedColor};`}>
         Strategic
       </span>
     </div>

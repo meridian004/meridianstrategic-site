@@ -1,92 +1,86 @@
 ---
-// Hero — enterprise, two-line headline, weight 400, dense letter-spacing
+// Hero — dark editorial, serif headline, advisory-grade.
+// Reference: McKinsey (dark navy + serif over photo) / PwC (dark bg + ITC Charter).
+// Photo layer ready — swap background-image when editorial photography is sourced.
 ---
 
-<section class="relative overflow-hidden bg-(--color-bg) border-b border-(--color-line)">
-  <!-- Background: layered SVG horizon — drawn, no stock photo -->
-  <div class="absolute inset-0 pointer-events-none opacity-[0.5]" aria-hidden="true">
-    <svg viewBox="0 0 1440 720" preserveAspectRatio="xMidYMid slice" class="w-full h-full">
+<section class="relative overflow-hidden border-b border-(--color-line)">
+  <!-- Dark atmospheric background -->
+  <div class="absolute inset-0" aria-hidden="true">
+    <!-- Base: deep forest-ink gradient -->
+    <div class="absolute inset-0" style="background: linear-gradient(165deg, #0c1f1a 0%, #112b23 35%, #0e1a16 70%, #0a110e 100%);"></div>
+    <!-- Layered SVG ridges — atmospheric depth -->
+    <svg viewBox="0 0 1440 720" preserveAspectRatio="xMidYMid slice" class="absolute inset-0 w-full h-full opacity-30">
       <defs>
-        <linearGradient id="sky" x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0%" stop-color="#F9F4E8" />
-          <stop offset="100%" stop-color="#FBF9F4" />
+        <linearGradient id="r1" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0%" stop-color="#1f4035" stop-opacity="0.6" />
+          <stop offset="100%" stop-color="#1f4035" stop-opacity="0.1" />
         </linearGradient>
-        <linearGradient id="ridge1" x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0%" stop-color="#2C5649" stop-opacity="0.2" />
-          <stop offset="100%" stop-color="#2C5649" stop-opacity="0.06" />
-        </linearGradient>
-        <linearGradient id="ridge2" x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0%" stop-color="#1F4035" stop-opacity="0.35" />
-          <stop offset="100%" stop-color="#1F4035" stop-opacity="0.12" />
-        </linearGradient>
-        <linearGradient id="ridge3" x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0%" stop-color="#15302A" stop-opacity="0.55" />
-          <stop offset="100%" stop-color="#15302A" stop-opacity="0.2" />
+        <linearGradient id="r2" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0%" stop-color="#15302a" stop-opacity="0.7" />
+          <stop offset="100%" stop-color="#15302a" stop-opacity="0.15" />
         </linearGradient>
       </defs>
-      <rect width="1440" height="720" fill="url(#sky)" />
-      <path fill="url(#ridge1)" d="M0 420 L180 360 L340 400 L520 340 L720 390 L900 330 L1080 380 L1280 340 L1440 370 L1440 720 L0 720 Z" />
-      <path fill="url(#ridge2)" d="M0 500 L220 430 L400 470 L600 410 L820 470 L1020 420 L1220 460 L1440 440 L1440 720 L0 720 Z" />
-      <path fill="url(#ridge3)" d="M0 580 L240 540 L460 580 L700 520 L920 560 L1160 530 L1440 560 L1440 720 L0 720 Z" />
+      <path fill="url(#r1)" d="M0 440 L180 380 L340 420 L520 360 L720 410 L900 350 L1080 400 L1280 360 L1440 390 L1440 720 L0 720 Z" />
+      <path fill="url(#r2)" d="M0 540 L240 500 L460 540 L700 480 L920 520 L1160 490 L1440 520 L1440 720 L0 720 Z" />
     </svg>
-  </div>
-
-  <!-- 12-column grid overlay, subtle -->
-  <div class="absolute inset-0 pointer-events-none opacity-[0.05]" aria-hidden="true">
-    <div class="grid grid-cols-12 h-full gap-0 max-w-[1280px] mx-auto px-6">
-      {Array.from({ length: 12 }).map(() => (
-        <div class="border-r border-(--color-ink)"></div>
-      ))}
-    </div>
+    <!-- Grain texture overlay -->
+    <div class="absolute inset-0 grain opacity-40"></div>
+    <!-- Brass meridian line — subtle horizontal accent -->
+    <div class="absolute left-0 right-0" style="top: 68%; height: 1px; background: linear-gradient(90deg, transparent, rgba(168,123,60,0.25) 20%, rgba(168,123,60,0.35) 50%, rgba(168,123,60,0.25) 80%, transparent);"></div>
   </div>
 
   <!-- Content -->
-  <div class="relative max-w-[1280px] mx-auto px-6 pt-32 pb-40 md:pt-48 md:pb-56">
+  <div class="relative max-w-[1280px] mx-auto px-6 pt-32 pb-36 md:pt-44 md:pb-52">
     <div data-reveal class="flex items-center gap-3 mb-12">
       <span class="w-10 h-px bg-(--color-brass)"></span>
-      <p class="eyebrow">Est. 2024 · Strategic advisory</p>
+      <p class="text-[12px] font-sans font-medium tracking-[0.12em] uppercase text-(--color-brass)">
+        Strategic advisory for the disclosure era
+      </p>
     </div>
 
     <h1
       data-reveal
-      class="font-sans font-light text-(--color-ink) max-w-4xl mb-8"
-      style="font-size: var(--text-hero); line-height: 1.0; letter-spacing: -0.025em; font-weight: 300;"
+      class="font-serif max-w-4xl mb-8"
+      style="font-size: var(--text-hero); line-height: 1.05; letter-spacing: -0.02em; font-weight: 400; color: var(--color-ivory);"
     >
       Sustainability strategy meets disclosure compliance.
-      <span class="italic text-(--color-forest)">We handle both.</span>
+      <span class="italic" style="color: var(--color-brass);">We handle both.</span>
     </h1>
 
     <div data-reveal class="mt-12 grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
-      <p class="md:col-span-7 text-lg md:text-xl text-(--color-ink-muted) leading-relaxed font-serif max-w-2xl">
+      <p class="md:col-span-7 text-lg md:text-xl leading-relaxed font-sans max-w-2xl" style="color: rgba(249,244,232,0.72);">
         Meridian advises boards, general counsel, and sustainability leaders on the disclosure, policy, and strategy work that now shapes enterprise value. We treat sustainability as a discipline, not a compliance checkbox.
       </p>
       <div class="md:col-span-5 flex flex-col gap-3 md:pt-0">
         <a
           href="#contact"
-          class="inline-flex items-center justify-center px-5 py-2.5 rounded-sm bg-(--color-forest) text-(--color-ivory) text-sm font-medium hover:bg-(--color-forest-dark) transition-colors duration-120"
+          class="inline-flex items-center justify-center px-5 py-3 bg-(--color-ivory) text-(--color-forest-dark) text-sm font-medium hover:bg-white transition-colors"
           style="transition: all 120ms cubic-bezier(0.25, 0.46, 0.45, 0.94);"
         >
           Begin engagement
         </a>
         <a
           href="#capabilities"
-          class="inline-flex items-center justify-center px-5 py-2.5 rounded-sm border border-(--color-line-strong) text-(--color-ink) text-sm font-medium hover:border-(--color-ink) hover:bg-(--color-surface) transition-colors duration-120"
-          style="transition: all 120ms cubic-bezier(0.25, 0.46, 0.45, 0.94);"
+          class="inline-flex items-center justify-center px-5 py-3 border text-sm font-medium transition-colors"
+          style="border-color: rgba(249,244,232,0.25); color: var(--color-ivory); transition: all 120ms cubic-bezier(0.25, 0.46, 0.45, 0.94);"
+          onmouseover="this.style.borderColor='rgba(249,244,232,0.5)'"
+          onmouseout="this.style.borderColor='rgba(249,244,232,0.25)'"
         >
           Our approach
         </a>
       </div>
     </div>
 
-    <!-- Framework ribbon: tightened, essential only -->
-    <div data-reveal class="mt-24 md:mt-32 pt-8 border-t border-(--color-line) flex flex-wrap items-baseline gap-x-6 gap-y-2 text-sm text-(--color-ink-faint)">
-      <span class="eyebrow">Core frameworks</span>
-      <span class="font-mono text-xs tracking-tight text-(--color-ink-muted)">CSRD</span>
-      <span class="font-mono text-xs tracking-tight text-(--color-ink-muted)">ISSB</span>
-      <span class="font-mono text-xs tracking-tight text-(--color-ink-muted)">TCFD</span>
-      <span class="font-mono text-xs tracking-tight text-(--color-ink-muted)">SASB</span>
-      <span class="font-mono text-xs tracking-tight text-(--color-ink-muted)">GRI</span>
-      <span class="font-mono text-xs tracking-tight text-(--color-ink-muted)">SEC Climate</span>
+    <!-- Framework ribbon -->
+    <div data-reveal class="mt-24 md:mt-32 pt-8 flex flex-wrap items-baseline gap-x-6 gap-y-2 text-sm" style="border-top: 1px solid rgba(249,244,232,0.12);">
+      <span class="text-[12px] font-sans font-medium tracking-[0.12em] uppercase" style="color: rgba(249,244,232,0.4);">Core frameworks</span>
+      <span class="font-mono text-xs tracking-tight" style="color: rgba(249,244,232,0.55);">CSRD</span>
+      <span class="font-mono text-xs tracking-tight" style="color: rgba(249,244,232,0.55);">ISSB</span>
+      <span class="font-mono text-xs tracking-tight" style="color: rgba(249,244,232,0.55);">TCFD</span>
+      <span class="font-mono text-xs tracking-tight" style="color: rgba(249,244,232,0.55);">SASB</span>
+      <span class="font-mono text-xs tracking-tight" style="color: rgba(249,244,232,0.55);">GRI</span>
+      <span class="font-mono text-xs tracking-tight" style="color: rgba(249,244,232,0.55);">SEC Climate</span>
     </div>
   </div>
 </section>

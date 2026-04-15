@@ -79,7 +79,7 @@ html {
 body {
   background: var(--color-bg);
   color: var(--color-ink);
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   font-size: var(--text-body);
   line-height: 1.65;
   font-feature-settings: "ss01", "cv11";
@@ -88,8 +88,10 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+/* Serif reserved for voice moments — headlines, editorial pull quotes.
+   Matches McKinsey (Bower) / PwC (ITC Charter) playbook. */
 h1, h2, h3, h4 {
-  font-family: var(--font-sans);
+  font-family: var(--font-serif);
   letter-spacing: var(--tracking-display);
   font-weight: 400;
   color: var(--color-ink);
@@ -130,9 +132,16 @@ p { max-width: 65ch; }
   font-size: var(--text-eyebrow);
   letter-spacing: var(--tracking-eyebrow);
   text-transform: uppercase;
-  font-weight: 600;
-  color: #757575;
+  font-weight: 500;
+  color: var(--color-ink-faint);
   font-family: var(--font-sans);
+}
+
+/* Editorial prose — serif for body text in content-heavy sections */
+.prose-editorial {
+  font-family: var(--font-serif);
+  font-size: var(--text-body);
+  line-height: 1.7;
 }
 
 .rule {

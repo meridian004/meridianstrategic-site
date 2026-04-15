@@ -47,7 +47,7 @@ const years = [
     <div class="grid grid-cols-1 md:grid-cols-12 gap-10 mb-16 items-end">
       <div class="md:col-span-7" data-reveal>
         <p class="eyebrow mb-4">Regulatory horizon</p>
-        <h2 class="font-sans text-4xl md:text-5xl leading-[1.08] text-(--color-ink) font-light">
+        <h2 class="font-serif text-4xl md:text-5xl leading-[1.08] text-(--color-ink) font-light">
           The next five years, on <span class="italic text-(--color-forest)">one page.</span>
         </h2>
       </div>
@@ -77,10 +77,10 @@ const years = [
             {/* Milestones */}
             <div class="space-y-4">
               {y.milestones.map((m) => (
-                <div class="bg-(--color-bg) border border-(--color-line) rounded-md p-4">
+                <div class="bg-(--color-bg) border border-(--color-line) p-4">
                   <div class="flex items-center justify-between mb-2">
                     <span class="font-sans text-sm text-(--color-forest) font-medium leading-tight">{m.label}</span>
-                    <span class="text-[9px] font-mono uppercase tracking-[0.14em] text-(--color-brass-dark)">{m.body}</span>
+                    <span class="text-[9px] font-sans uppercase tracking-[0.14em] text-(--color-brass-dark)">{m.body}</span>
                   </div>
                   <p class="text-xs text-(--color-ink-muted) leading-relaxed font-serif">{m.detail}</p>
                 </div>
@@ -100,10 +100,10 @@ const years = [
           <p class="font-sans text-4xl leading-none text-(--color-ink) mb-4 font-light">{y.year}</p>
           <div class="space-y-3">
             {y.milestones.map((m) => (
-              <div class="bg-(--color-bg) border border-(--color-line) rounded-md p-4">
+              <div class="bg-(--color-bg) border border-(--color-line) p-4">
                 <div class="flex items-center justify-between mb-2">
                   <span class="font-sans text-sm text-(--color-forest) font-medium">{m.label}</span>
-                  <span class="text-[9px] font-mono uppercase tracking-[0.14em] text-(--color-brass-dark)">{m.body}</span>
+                  <span class="text-[9px] font-sans uppercase tracking-[0.14em] text-(--color-brass-dark)">{m.body}</span>
                 </div>
                 <p class="text-xs text-(--color-ink-muted) leading-relaxed font-serif">{m.detail}</p>
               </div>

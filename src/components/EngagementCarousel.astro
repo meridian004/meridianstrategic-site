@@ -110,7 +110,7 @@ const engagements = [
     >
       {engagements.map((e, i) => (
         <article
-          class="snap-start shrink-0 w-[85%] sm:w-[70%] md:w-[60%] lg:w-[48%] xl:w-[44%] bg-(--color-bg) border border-(--color-line) rounded-lg overflow-hidden flex flex-col"
+          class="snap-start shrink-0 w-[85%] sm:w-[70%] md:w-[60%] lg:w-[48%] xl:w-[44%] bg-(--color-bg) border border-(--color-line) overflow-hidden flex flex-col"
           data-slide={i}
         >
           {/* Illustration panel — sector-specific SVG */}
@@ -246,7 +246,7 @@ const engagements = [
               <span class="text-[10px] uppercase tracking-[0.14em] font-semibold text-(--color-brass-dark)">
                 {e.sector}
               </span>
-              <span class="text-[10px] font-mono uppercase tracking-[0.12em] text-(--color-ink-faint)">
+              <span class="text-[10px] font-sans uppercase tracking-[0.12em] text-(--color-ink-faint)">
                 № {String(i + 1).padStart(2, "0")} / 05
               </span>
             </div>
@@ -272,7 +272,7 @@ const engagements = [
                 <span class="eyebrow block mb-1">Outcome</span>
                 {e.outcome}
               </p>
-              <p class="font-mono text-xs text-(--color-ink-faint) shrink-0 mt-4">{e.duration}</p>
+              <p class="font-sans text-xs text-(--color-ink-faint) shrink-0 mt-4">{e.duration}</p>
             </div>
           </div>
         </article>
