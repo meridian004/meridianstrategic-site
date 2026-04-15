@@ -1,0 +1,52 @@
+---
+const stats = [
+  {
+    value: "~50,000",
+    label: "Companies in scope for EU CSRD reporting across phased adoption.",
+    source: "European Commission",
+  },
+  {
+    value: "$35T",
+    label: "Global ESG-aligned assets under management — roughly one in three dollars.",
+    source: "Bloomberg Intelligence",
+  },
+  {
+    value: "88%",
+    label: "Of S&P 500 companies now publish a sustainability report.",
+    source: "G&A Institute",
+  },
+  {
+    value: "2030",
+    label: "Year most major emissions-reduction commitments come due — audit-grade evidence required.",
+    source: "Science Based Targets initiative",
+  },
+];
+---
+
+<section class="bg-(--color-surface) border-b border-(--color-line) grain">
+  <div class="max-w-[1280px] mx-auto px-6 py-24 md:py-32">
+    <div class="max-w-2xl mb-16" data-reveal>
+      <p class="eyebrow mb-4">The stakes, briefly</p>
+      <h2 class="font-sans text-3xl md:text-4xl leading-[1.1] text-(--color-ink) font-light">
+        Numbers that changed what a CFO reads on Monday morning.
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-14">
+      {stats.map((s) => (
+        <div data-reveal class="border-t-2 border-(--color-forest) pt-6">
+          <p class="stat">{s.value}</p>
+          <p class="mt-5 text-(--color-ink) text-base leading-relaxed font-serif">{s.label}</p>
+          <p class="mt-4 text-xs uppercase tracking-[0.12em] text-(--color-ink-faint)">
+            Source: {s.source}
+          </p>
+        </div>
+      ))}
+    </div>
+
+    <p class="mt-12 text-sm text-(--color-ink-faint) max-w-3xl italic">
+      Figures are illustrative and sourced from publicly available reporting;
+      engagement-level numbers are developed with clients under NDA.
+    </p>
+  </div>
+</section>

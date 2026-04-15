@@ -1,0 +1,124 @@
+---
+// Framework "seals" — typographic treatments that evoke each body's identity
+// without reproducing trademarked marks. Each has a distinctive font stack,
+// color, layout, and metadata block.
+
+const frameworks = [
+  {
+    short: "CSRD",
+    full: "Corporate Sustainability Reporting Directive",
+    region: "EU",
+    est: "2023",
+    type: "Directive",
+    accent: "#0B3C5D",
+  },
+  {
+    short: "ISSB",
+    full: "International Sustainability Standards Board",
+    region: "Global",
+    est: "2021",
+    type: "Standard",
+    accent: "#1F4E5F",
+  },
+  {
+    short: "TCFD",
+    full: "Task Force on Climate-related Financial Disclosures",
+    region: "Global",
+    est: "2015",
+    type: "Framework",
+    accent: "#1C2E4A",
+  },
+  {
+    short: "SASB",
+    full: "Sustainability Accounting Standards Board",
+    region: "Global",
+    est: "2011",
+    type: "Standard",
+    accent: "#1B365D",
+  },
+  {
+    short: "GRI",
+    full: "Global Reporting Initiative",
+    region: "Global",
+    est: "1997",
+    type: "Standard",
+    accent: "#BD4A2F",
+  },
+  {
+    short: "SEC",
+    full: "U.S. Climate-Related Disclosures Rule",
+    region: "US",
+    est: "2024",
+    type: "Rule",
+    accent: "#15302A",
+  },
+];
+---
+
+<section class="bg-(--color-bg) border-b border-(--color-line)">
+  <div class="max-w-[1280px] mx-auto px-6 py-32 md:py-40">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-10 mb-20">
+      <div class="md:col-span-6" data-reveal>
+        <p class="eyebrow mb-4">Framework fluency</p>
+        <h2 class="font-sans text-(--color-ink)" style="font-size: var(--text-display); line-height: 1.05; letter-spacing: var(--tracking-display); font-weight: 400;">
+          The vocabulary of<span class="italic text-(--color-forest)"> modern disclosure regimes.</span>
+        </h2>
+      </div>
+      <div class="md:col-span-5 md:col-start-8 text-base text-(--color-ink-muted) leading-[1.7] font-serif" data-reveal>
+        <p>
+          You need one team that speaks all of these—and can translate between them for boards, auditors, and regulators.
+        </p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" data-reveal>
+      {frameworks.map((f) => (
+        <article
+          class="group relative bg-(--color-ivory) border border-(--color-line) rounded-sm overflow-hidden hover:border-(--color-ink) hover:shadow-(--shadow-card) transition-all duration-120 flex flex-col"
+          style="transition: all 120ms cubic-bezier(0.25, 0.46, 0.45, 0.94);"
+        >
+          {/* Top accent bar */}
+          <div class="h-1" style={`background: ${f.accent};`}></div>
+
+          <div class="p-6 flex flex-col flex-1">
+            {/* Type + Est */}
+            <div class="flex items-start justify-between mb-5 pb-4 border-b border-(--color-line)">
+              <p class="text-xs font-mono uppercase tracking-tight text-(--color-ink-faint)">
+                {f.type}
+              </p>
+              <p class="text-xs font-mono uppercase tracking-tight text-(--color-ink-faint)">
+                {f.est}
+              </p>
+            </div>
+
+            {/* Seal */}
+            <div class="mb-4 pb-4">
+              <p
+                class="font-sans text-2xl leading-none tracking-tight font-light"
+                style={`color: ${f.accent};`}
+              >
+                {f.short}
+              </p>
+            </div>
+
+            {/* Description */}
+            <p class="text-xs text-(--color-ink) leading-relaxed mb-4 flex-1 font-serif">
+              {f.full}
+            </p>
+
+            {/* Region footer */}
+            <div class="pt-4 border-t border-(--color-line)">
+              <span class="text-xs font-mono uppercase tracking-tight text-(--color-ink-muted)">
+                {f.region}
+              </span>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <p class="mt-10 text-xs text-(--color-ink-faint) leading-relaxed max-w-2xl">
+      Treatments are typographic representations. All standards and frameworks are the property of their respective issuing bodies.
+    </p>
+  </div>
+</section>

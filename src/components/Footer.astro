@@ -1,0 +1,63 @@
+---
+import Logo from "./Logo.astro";
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-(--color-ink) text-(--color-ivory) mt-32">
+  <div class="max-w-[1280px] mx-auto px-6 pt-20 pb-12 grid grid-cols-1 md:grid-cols-12 gap-10">
+    <div class="md:col-span-5">
+      <Logo variant="inverse" size="lg" />
+      <p class="mt-6 text-(--color-ivory)/70 max-w-md leading-relaxed font-serif">
+        An ESG advisory firm helping public and private companies turn
+        disclosure, policy, and stakeholder pressure into clear strategy and
+        durable advantage.
+      </p>
+      <p class="mt-6 text-xs text-(--color-ivory)/50 uppercase tracking-[0.14em]">
+        Independent · Senior-led · United States
+      </p>
+    </div>
+
+    <div class="md:col-span-2">
+      <p class="text-xs uppercase tracking-[0.14em] text-(--color-brass) mb-4">Firm</p>
+      <ul class="space-y-2 text-sm">
+        <li><a href="/capabilities" class="text-(--color-ivory)/80 hover:text-(--color-ivory)">Capabilities</a></li>
+        <li><a href="/approach" class="text-(--color-ivory)/80 hover:text-(--color-ivory)">Approach</a></li>
+        <li><a href="/insights" class="text-(--color-ivory)/80 hover:text-(--color-ivory)">Insights</a></li>
+        <li><a href="/about" class="text-(--color-ivory)/80 hover:text-(--color-ivory)">About</a></li>
+      </ul>
+    </div>
+
+    <div class="md:col-span-3">
+      <p class="text-xs uppercase tracking-[0.14em] text-(--color-brass) mb-4">Practice areas</p>
+      <ul class="space-y-2 text-sm">
+        <li class="text-(--color-ivory)/80">Strategy & materiality</li>
+        <li class="text-(--color-ivory)/80">Disclosure & reporting</li>
+        <li class="text-(--color-ivory)/80">Stakeholder & policy</li>
+        <li class="text-(--color-ivory)/80">Transition planning</li>
+      </ul>
+    </div>
+
+    <div class="md:col-span-2">
+      <p class="text-xs uppercase tracking-[0.14em] text-(--color-brass) mb-4">Contact</p>
+      <ul class="space-y-2 text-sm">
+        <li>
+          <a href="mailto:wes@meridianstrategic.io" class="text-(--color-ivory)/80 hover:text-(--color-ivory) break-all">
+            wes@meridianstrategic.io
+          </a>
+        </li>
+        <li>
+          <a href="/contact" class="text-(--color-ivory)/80 hover:text-(--color-ivory)">
+            Begin engagement →
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="border-t border-white/10">
+    <div class="max-w-[1280px] mx-auto px-6 py-6 flex flex-col md:flex-row items-start md:items-center justify-between text-xs text-(--color-ivory)/50 gap-2">
+      <p>© {year} Meridian Strategic. All rights reserved.</p>
+      <p>Built to be small, senior, and accountable.</p>
+    </div>
+  </div>
+</footer>

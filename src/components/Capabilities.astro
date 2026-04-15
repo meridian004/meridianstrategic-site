@@ -1,0 +1,94 @@
+---
+const pillars = [
+  {
+    num: "I",
+    title: "Strategy & Materiality",
+    summary:
+      "Define what actually matters — for the business and for the people whose decisions shape it.",
+    lines: [
+      "Double-materiality assessments (financial × impact)",
+      "Stakeholder engagement design",
+      "Board and executive education",
+      "Sustainability-linked strategy and capital allocation",
+    ],
+  },
+  {
+    num: "II",
+    title: "Disclosure & Reporting",
+    summary:
+      "Build a disclosure function that can survive audit, litigation, and time.",
+    lines: [
+      "CSRD / ESRS readiness and gap analysis",
+      "ISSB-aligned climate and sustainability reporting",
+      "SEC climate rule preparedness",
+      "Assurance readiness and data architecture",
+    ],
+  },
+  {
+    num: "III",
+    title: "Stakeholder & Policy",
+    summary:
+      "Engage the regulators, investors, and advocates whose views are now priced in.",
+    lines: [
+      "Regulatory monitoring and engagement",
+      "Investor and proxy-season strategy",
+      "Coalition and trade-association positioning",
+      "Crisis response and narrative defense",
+    ],
+  },
+];
+---
+
+<section id="capabilities" class="bg-(--color-bg) border-b border-(--color-line)">
+  <div class="max-w-[1280px] mx-auto px-6 py-32 md:py-40">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-10 mb-16 items-end">
+      <div class="md:col-span-6" data-reveal>
+        <p class="eyebrow mb-4">Capabilities</p>
+        <h2 class="font-sans text-(--color-ink)" style="font-size: var(--text-display); line-height: 1.05; letter-spacing: var(--tracking-display); font-weight: 400;">
+          Three pillars.<span class="italic text-(--color-forest)"> One integrated practice.</span>
+        </h2>
+      </div>
+      <div class="md:col-span-5 md:col-start-8 text-base text-(--color-ink-muted) leading-[1.7] font-serif" data-reveal>
+        <p>
+          Each pillar is a door into a single, senior-led engagement designed to produce decisions—not decks.
+        </p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-(--color-line) mb-12">
+      {pillars.map((p) => (
+        <article
+          class="bg-(--color-bg) p-8 md:p-10 flex flex-col group hover:bg-(--color-surface) transition-colors duration-120"
+          style="transition: background-color 120ms cubic-bezier(0.25, 0.46, 0.45, 0.94);"
+          data-reveal
+        >
+          <div class="flex items-baseline gap-4 mb-8">
+            <span class="font-sans text-4xl text-(--color-brass) leading-none font-light">{p.num}</span>
+            <span class="h-px flex-1 bg-(--color-line)"></span>
+          </div>
+          <h3 class="font-sans text-xl md:text-2xl text-(--color-ink) mb-4 leading-snug font-light">{p.title}</h3>
+          <p class="text-sm text-(--color-ink-muted) leading-relaxed mb-6 font-serif">{p.summary}</p>
+          <ul class="space-y-2.5 mt-auto text-xs font-serif">
+            {p.lines.map((l) => (
+              <li class="flex items-start gap-3 text-(--color-ink-2) leading-snug">
+                <span class="mt-1.5 w-1 h-1 rounded-full bg-(--color-forest) shrink-0"></span>
+                <span>{l}</span>
+              </li>
+            ))}
+          </ul>
+        </article>
+      ))}
+    </div>
+
+    <div class="flex justify-end" data-reveal>
+      <a
+        href="/capabilities"
+        class="text-sm text-(--color-forest) font-medium hover:text-(--color-brass) transition-colors duration-120 flex items-center gap-2"
+        style="transition: color 120ms cubic-bezier(0.25, 0.46, 0.45, 0.94);"
+      >
+        Full capability detail
+        <span aria-hidden="true">→</span>
+      </a>
+    </div>
+  </div>
+</section>

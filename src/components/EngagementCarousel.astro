@@ -1,0 +1,365 @@
+---
+// Engagement vignettes — scroll-snap carousel with custom per-sector
+// illustrations. Anonymized, illustrative. Wes can replace with real work.
+
+const engagements = [
+  {
+    sector: "Industrial",
+    subsector: "Global manufacturer",
+    engagement: "CSRD readiness",
+    headline: "From exposure inventory to audit-ready program in 14 weeks.",
+    context:
+      "A U.S.-headquartered multinational with three EU operating subsidiaries in the first phase-in wave had no unified disclosure function.",
+    work: [
+      "Double-materiality assessment across 40+ topics",
+      "Data-architecture diagnostic and control design",
+      "18-month implementation roadmap to board",
+    ],
+    outcome: "Audit committee approval secured; Big-4 readiness attest engaged.",
+    duration: "14 weeks",
+  },
+  {
+    sector: "Financial services",
+    subsector: "U.S. asset manager",
+    engagement: "ISSB integration",
+    headline: "TCFD-aligned program restructured under ISSB S1 / S2.",
+    context:
+      "Existing climate disclosure was investor-facing and voluntary; leadership sought to raise it to assurance grade under the new ISSB baseline.",
+    work: [
+      "Disclosure architecture redesign (S1 + S2)",
+      "Scenario analysis methodology (1.5°C / 2°C / 3°C)",
+      "Reasonable-assurance readiness with audit team",
+    ],
+    outcome: "2025 cycle delivered under ISSB; reasonable assurance secured.",
+    duration: "10 weeks",
+  },
+  {
+    sector: "Energy",
+    subsector: "Regulated utility",
+    engagement: "Policy & stakeholder",
+    headline: "Engagement strategy for a proposed state disclosure rule.",
+    context:
+      "A proposed state-level climate disclosure statute threatened to impose an inconsistent reporting regime on a multi-state operator.",
+    work: [
+      "Regulatory and legislative analysis",
+      "Coalition positioning across trade associations",
+      "Executive testimony and written comments",
+    ],
+    outcome: "Client input reflected in final rule; testimony cited in record.",
+    duration: "6 months",
+  },
+  {
+    sector: "Consumer",
+    subsector: "Fortune 500 retailer",
+    engagement: "Proxy-season defense",
+    headline: "A climate proposal withdrawn before it reached a vote.",
+    context:
+      "An investor-led climate-lobbying proposal was filed days before the proxy deadline; the board needed a defensible position within two weeks.",
+    work: [
+      "Proposal analysis and peer-vote modeling",
+      "Disclosure enhancement scope and timeline",
+      "Direct engagement with filer and top ten holders",
+    ],
+    outcome: "Proposal withdrawn following negotiated disclosure commitments.",
+    duration: "8 weeks",
+  },
+  {
+    sector: "Healthcare",
+    subsector: "Life-sciences company",
+    engagement: "Strategy reset",
+    headline: "A new materiality map, adopted into executive compensation.",
+    context:
+      "New CEO inherited an outdated sustainability strategy with low internal buy-in and no link to the P&L.",
+    work: [
+      "40+ interviews (internal and external)",
+      "Revised 3-pillar strategy and target architecture",
+      "KPI integration into long-term executive compensation",
+    ],
+    outcome: "Board-approved strategy; KPIs live in 2026 LTIP grant cycle.",
+    duration: "12 weeks",
+  },
+];
+
+// Illustrations are keyed by sector — simple editorial SVG compositions
+---
+
+<section class="bg-(--color-ivory) border-b border-(--color-line)">
+  <div class="max-w-[1280px] mx-auto px-6 pt-24 pb-8 md:pt-32">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-10 mb-14 items-end">
+      <div class="md:col-span-7" data-reveal>
+        <p class="eyebrow mb-4">Selected engagements</p>
+        <h2 class="font-display text-4xl md:text-5xl leading-[1.08] text-(--color-ink)">
+          Anonymized vignettes of the <span class="display-italic text-(--color-forest)">work itself.</span>
+        </h2>
+      </div>
+      <div class="md:col-span-4 md:col-start-9 text-(--color-ink-muted) leading-relaxed" data-reveal>
+        <p>
+          Five recent files — scrubbed of identifying detail. Each is indicative
+          of the shape and tempo of a typical engagement.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="relative" data-reveal>
+    {/* Carousel track */}
+    <div
+      id="engagement-carousel"
+      class="flex overflow-x-auto snap-x snap-mandatory gap-6 px-6 md:px-[max(1.5rem,calc((100vw-1280px)/2+1.5rem))] pb-8 scroll-smooth"
+      style="scrollbar-width: none;"
+    >
+      {engagements.map((e, i) => (
+        <article
+          class="snap-start shrink-0 w-[85%] sm:w-[70%] md:w-[60%] lg:w-[48%] xl:w-[44%] bg-(--color-bg) border border-(--color-line) rounded-lg overflow-hidden flex flex-col"
+          data-slide={i}
+        >
+          {/* Illustration panel — sector-specific SVG */}
+          <div class="relative aspect-[16/9] bg-(--color-surface) border-b border-(--color-line) overflow-hidden">
+            {/* Common grid backdrop */}
+            <svg class="absolute inset-0 w-full h-full opacity-[0.35]" viewBox="0 0 400 225" preserveAspectRatio="none">
+              <defs>
+                <pattern id={`grid-${i}`} width="20" height="20" patternUnits="userSpaceOnUse">
+                  <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#1F4035" stroke-width="0.4" />
+                </pattern>
+              </defs>
+              <rect width="400" height="225" fill={`url(#grid-${i})`} />
+            </svg>
+
+            {/* Sector illustrations */}
+            {e.sector === "Industrial" && (
+              <svg class="absolute inset-0 w-full h-full" viewBox="0 0 400 225" preserveAspectRatio="xMidYMid meet">
+                {/* Factory skyline */}
+                <g stroke="#1F4035" fill="none" stroke-width="1.5" stroke-linejoin="round">
+                  <path d="M40 170 L40 120 L80 120 L80 100 L120 100 L120 120 L160 120 L160 140 L200 140 L200 110 L240 110 L240 130 L280 130 L280 105 L320 105 L320 140 L360 140 L360 170 Z" fill="#1F4035" fill-opacity="0.08" />
+                  <line x1="20" y1="170" x2="380" y2="170" />
+                  {/* Smokestacks */}
+                  <line x1="95" y1="100" x2="95" y2="60" stroke-width="3" />
+                  <line x1="255" y1="105" x2="255" y2="55" stroke-width="3" />
+                </g>
+                {/* Emissions curve — downward arrow */}
+                <g stroke="#A87B3C" fill="none" stroke-width="2">
+                  <path d="M40 50 Q 120 40 200 60 T 360 120" stroke-dasharray="3 3" />
+                  <circle cx="360" cy="120" r="3.5" fill="#A87B3C" stroke="none" />
+                </g>
+                <text x="50" y="40" font-family="JetBrains Mono" font-size="9" fill="#1F4035" letter-spacing="1.5">SCOPE 1 · 2 · 3</text>
+              </svg>
+            )}
+
+            {e.sector === "Financial services" && (
+              <svg class="absolute inset-0 w-full h-full" viewBox="0 0 400 225" preserveAspectRatio="xMidYMid meet">
+                {/* Bar chart rising */}
+                <g fill="#1F4035" fill-opacity="0.6">
+                  <rect x="50" y="150" width="24" height="30" />
+                  <rect x="90" y="130" width="24" height="50" />
+                  <rect x="130" y="110" width="24" height="70" />
+                  <rect x="170" y="90" width="24" height="90" />
+                  <rect x="210" y="75" width="24" height="105" />
+                  <rect x="250" y="60" width="24" height="120" />
+                  <rect x="290" y="45" width="24" height="135" />
+                  <rect x="330" y="30" width="24" height="150" />
+                </g>
+                <line x1="40" y1="180" x2="370" y2="180" stroke="#1F4035" stroke-width="1.5" />
+                {/* Trend line */}
+                <path d="M62 160 L102 140 L142 120 L182 100 L222 85 L262 70 L302 55 L342 40" fill="none" stroke="#A87B3C" stroke-width="2" />
+                <circle cx="342" cy="40" r="4" fill="#A87B3C" />
+                <text x="50" y="25" font-family="JetBrains Mono" font-size="9" fill="#1F4035" letter-spacing="1.5">AUM · ESG INTEGRATED</text>
+              </svg>
+            )}
+
+            {e.sector === "Energy" && (
+              <svg class="absolute inset-0 w-full h-full" viewBox="0 0 400 225" preserveAspectRatio="xMidYMid meet">
+                {/* Transmission towers + catenary lines */}
+                <g stroke="#1F4035" fill="none" stroke-width="1.5" stroke-linecap="round">
+                  {/* Tower 1 */}
+                  <path d="M80 170 L70 90 L90 90 Z M75 140 L85 140 M72 120 L88 120 M70 90 L50 70 M90 90 L110 70" />
+                  {/* Tower 2 */}
+                  <path d="M220 170 L210 70 L230 70 Z M215 130 L225 130 M212 110 L228 110 M210 70 L188 50 M230 70 L252 50" />
+                  {/* Tower 3 */}
+                  <path d="M360 170 L350 90 L370 90 Z M355 140 L365 140 M352 120 L368 120 M350 90 L330 70 M370 90 L390 70" />
+                  <line x1="20" y1="170" x2="400" y2="170" />
+                </g>
+                {/* Catenary wires */}
+                <g stroke="#A87B3C" fill="none" stroke-width="1.2">
+                  <path d="M80 90 Q 150 110 220 70" />
+                  <path d="M220 70 Q 290 100 360 90" />
+                </g>
+                <text x="50" y="35" font-family="JetBrains Mono" font-size="9" fill="#1F4035" letter-spacing="1.5">GRID · POLICY · COUNSEL</text>
+              </svg>
+            )}
+
+            {e.sector === "Consumer" && (
+              <svg class="absolute inset-0 w-full h-full" viewBox="0 0 400 225" preserveAspectRatio="xMidYMid meet">
+                {/* Ballot / proxy card */}
+                <g stroke="#1F4035" fill="none" stroke-width="1.5">
+                  <rect x="100" y="50" width="200" height="130" fill="#FBF9F4" />
+                  <line x1="115" y1="75" x2="285" y2="75" />
+                  <line x1="115" y1="95" x2="260" y2="95" />
+                  <rect x="115" y="115" width="12" height="12" />
+                  <line x1="135" y1="121" x2="220" y2="121" />
+                  <rect x="115" y="140" width="12" height="12" fill="#A87B3C" stroke="#A87B3C" />
+                  <line x1="135" y1="146" x2="220" y2="146" />
+                  <rect x="115" y="165" width="12" height="12" />
+                  <line x1="135" y1="171" x2="220" y2="171" />
+                </g>
+                {/* Withdrawn stamp */}
+                <g transform="translate(230 130) rotate(-8)">
+                  <rect x="0" y="0" width="80" height="30" fill="none" stroke="#A87B3C" stroke-width="2" />
+                  <text x="40" y="20" font-family="JetBrains Mono" font-size="11" fill="#A87B3C" text-anchor="middle" letter-spacing="2">WITHDRAWN</text>
+                </g>
+                <text x="100" y="35" font-family="JetBrains Mono" font-size="9" fill="#1F4035" letter-spacing="1.5">PROXY SEASON · Q1</text>
+              </svg>
+            )}
+
+            {e.sector === "Healthcare" && (
+              <svg class="absolute inset-0 w-full h-full" viewBox="0 0 400 225" preserveAspectRatio="xMidYMid meet">
+                {/* Materiality matrix */}
+                <g stroke="#1F4035" fill="none" stroke-width="1.5">
+                  <line x1="70" y1="180" x2="330" y2="180" />
+                  <line x1="70" y1="180" x2="70" y2="40" />
+                  {/* Axis ticks */}
+                  <line x1="140" y1="180" x2="140" y2="185" />
+                  <line x1="210" y1="180" x2="210" y2="185" />
+                  <line x1="280" y1="180" x2="280" y2="185" />
+                  <line x1="70" y1="145" x2="65" y2="145" />
+                  <line x1="70" y1="110" x2="65" y2="110" />
+                  <line x1="70" y1="75" x2="65" y2="75" />
+                </g>
+                {/* Matrix dots */}
+                <g fill="#1F4035">
+                  <circle cx="120" cy="160" r="5" opacity="0.4" />
+                  <circle cx="160" cy="140" r="7" opacity="0.5" />
+                  <circle cx="200" cy="120" r="9" opacity="0.6" />
+                  <circle cx="240" cy="90" r="11" opacity="0.7" />
+                  <circle cx="290" cy="65" r="13" fill="#A87B3C" opacity="1" />
+                  <circle cx="140" cy="100" r="6" opacity="0.4" />
+                  <circle cx="220" cy="70" r="8" opacity="0.5" />
+                </g>
+                <text x="80" y="30" font-family="JetBrains Mono" font-size="9" fill="#1F4035" letter-spacing="1.5">IMPACT × FINANCIAL</text>
+                <text x="330" y="200" font-family="JetBrains Mono" font-size="9" fill="#1F4035" letter-spacing="1.5" text-anchor="end">STAKEHOLDER SIGNAL</text>
+              </svg>
+            )}
+          </div>
+
+          {/* Content */}
+          <div class="p-7 md:p-8 flex flex-col flex-1">
+            <div class="flex items-center justify-between mb-5">
+              <span class="text-[10px] uppercase tracking-[0.14em] font-semibold text-(--color-brass-dark)">
+                {e.sector}
+              </span>
+              <span class="text-[10px] font-mono uppercase tracking-[0.12em] text-(--color-ink-faint)">
+                № {String(i + 1).padStart(2, "0")} / 05
+              </span>
+            </div>
+
+            <p class="text-xs uppercase tracking-[0.14em] text-(--color-ink-faint) mb-2">{e.subsector} · {e.engagement}</p>
+            <h3 class="font-display text-2xl md:text-[1.75rem] leading-[1.15] text-(--color-ink) mb-4">
+              {e.headline}
+            </h3>
+
+            <p class="text-[0.95rem] text-(--color-ink-muted) leading-relaxed mb-5">{e.context}</p>
+
+            <ul class="space-y-2 text-sm text-(--color-ink-2) mb-6 pl-0">
+              {e.work.map((w) => (
+                <li class="flex items-start gap-3">
+                  <span class="mt-1.5 w-1 h-1 rounded-full bg-(--color-forest) shrink-0"></span>
+                  <span>{w}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div class="mt-auto pt-5 border-t border-(--color-line) flex items-start justify-between gap-4">
+              <p class="text-sm text-(--color-ink) leading-snug max-w-[75%]">
+                <span class="eyebrow block mb-1">Outcome</span>
+                {e.outcome}
+              </p>
+              <p class="font-mono text-xs text-(--color-ink-faint) shrink-0 mt-4">{e.duration}</p>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    {/* Controls */}
+    <div class="max-w-[1280px] mx-auto px-6 mt-6 flex items-center justify-between gap-6">
+      <div id="engagement-dots" class="flex items-center gap-2">
+        {engagements.map((_, i) => (
+          <button
+            type="button"
+            aria-label={`Go to engagement ${i + 1}`}
+            data-dot={i}
+            class="w-2 h-2 rounded-full bg-(--color-ink-faint)/40 hover:bg-(--color-forest) data-[active=true]:bg-(--color-forest) data-[active=true]:w-6 transition-all"
+          ></button>
+        ))}
+      </div>
+      <div class="flex items-center gap-2">
+        <button
+          type="button"
+          id="engagement-prev"
+          aria-label="Previous engagement"
+          class="w-11 h-11 rounded-full border border-(--color-line-strong) flex items-center justify-center hover:border-(--color-ink) hover:bg-(--color-bg) transition-colors"
+        >
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button
+          type="button"
+          id="engagement-next"
+          aria-label="Next engagement"
+          class="w-11 h-11 rounded-full border border-(--color-line-strong) flex items-center justify-center hover:border-(--color-ink) hover:bg-(--color-bg) transition-colors"
+        >
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="h-16"></div>
+
+  <script is:inline>
+    (function () {
+      const track = document.getElementById("engagement-carousel");
+      const prev = document.getElementById("engagement-prev");
+      const next = document.getElementById("engagement-next");
+      const dotsEl = document.getElementById("engagement-dots");
+      if (!track || !prev || !next || !dotsEl) return;
+      const slides = track.querySelectorAll("[data-slide]");
+      const dots = dotsEl.querySelectorAll("[data-dot]");
+
+      const scrollToIndex = (i) => {
+        const clamped = Math.max(0, Math.min(slides.length - 1, i));
+        const slide = slides[clamped];
+        if (!slide) return;
+        track.scrollTo({
+          left: slide.offsetLeft - track.offsetLeft - 24,
+          behavior: "smooth",
+        });
+      };
+
+      const getActive = () => {
+        const trackRect = track.getBoundingClientRect();
+        let best = 0;
+        let bestDist = Infinity;
+        slides.forEach((s, i) => {
+          const r = s.getBoundingClientRect();
+          const dist = Math.abs(r.left - trackRect.left - 24);
+          if (dist < bestDist) {
+            bestDist = dist;
+            best = i;
+          }
+        });
+        return best;
+      };
+
+      const updateDots = () => {
+        const active = getActive();
+        dots.forEach((d, i) => d.setAttribute("data-active", i === active ? "true" : "false"));
+      };
+
+      prev.addEventListener("click", () => scrollToIndex(getActive() - 1));
+      next.addEventListener("click", () => scrollToIndex(getActive() + 1));
+      dots.forEach((d, i) => d.addEventListener("click", () => scrollToIndex(i)));
+      track.addEventListener("scroll", () => { window.requestAnimationFrame(updateDots); });
+
+      updateDots();
+    })();
+  </script>
+</section>

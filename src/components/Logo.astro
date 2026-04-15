@@ -1,0 +1,75 @@
+---
+// Meridian Strategic logo system.
+// Mark: astrolabe — a forest circle bisected by a brass meridian line,
+// with small degree ticks marking the pole. Distinctive at 20px, stately at 200px.
+// Wordmark: Fraunces display for MERIDIAN with tracked letterspacing,
+// small brass rule, Inter small caps for STRATEGIC.
+
+interface Props {
+  variant?: "default" | "inverse" | "stacked" | "mark-only";
+  size?: "sm" | "md" | "lg";
+  class?: string;
+}
+
+const { variant = "default", size = "md", class: className = "" } = Astro.props;
+
+const markSize = size === "sm" ? 24 : size === "lg" ? 48 : 32;
+const wordmarkClass = size === "sm" ? "text-base" : size === "lg" ? "text-2xl" : "text-xl";
+
+const inkColor =
+  variant === "inverse" ? "var(--color-ivory)" : "var(--color-ink)";
+const forestColor =
+  variant === "inverse" ? "var(--color-ivory)" : "var(--color-forest)";
+const brassColor = "var(--color-brass)";
+const mutedColor =
+  variant === "inverse" ? "rgba(249,244,232,0.65)" : "var(--color-ink-muted)";
+---
+
+{variant === "stacked" ? (
+  <div class={`inline-flex flex-col items-center gap-3 ${className}`}>
+    <svg width={markSize * 2} height={markSize * 2} viewBox="0 0 32 32" aria-hidden="true" class="shrink-0">
+      <circle cx="16" cy="16" r="13" fill="none" stroke={forestColor} stroke-width="1.5" />
+      <circle cx="16" cy="16" r="9" fill="none" stroke={forestColor} stroke-width="0.75" opacity="0.5" />
+      <line x1="0.5" y1="16" x2="31.5" y2="16" stroke={brassColor} stroke-width="1.5" stroke-linecap="round" />
+      <line x1="16" y1="0.5" x2="16" y2="3.5" stroke={forestColor} stroke-width="1" stroke-linecap="round" />
+      <line x1="16" y1="28.5" x2="16" y2="31.5" stroke={forestColor} stroke-width="1" stroke-linecap="round" />
+      <circle cx="16" cy="16" r="1.3" fill={brassColor} />
+    </svg>
+    <div class="flex flex-col items-center">
+      <span class="font-display tracking-[0.04em]" style={`font-size: ${markSize * 1.1}px; color: ${inkColor}; line-height: 1;`}>
+        Meridian
+      </span>
+      <span class="font-sans text-xs font-medium tracking-[0.32em] mt-2 uppercase" style={`color: ${mutedColor};`}>
+        Strategic
+      </span>
+    </div>
+  </div>
+) : variant === "mark-only" ? (
+  <svg width={markSize} height={markSize} viewBox="0 0 32 32" aria-label="Meridian Strategic" class={`shrink-0 ${className}`}>
+    <circle cx="16" cy="16" r="13" fill="none" stroke={forestColor} stroke-width="1.75" />
+    <circle cx="16" cy="16" r="9" fill="none" stroke={forestColor} stroke-width="0.75" opacity="0.5" />
+    <line x1="0.5" y1="16" x2="31.5" y2="16" stroke={brassColor} stroke-width="1.75" stroke-linecap="round" />
+    <line x1="16" y1="0.5" x2="16" y2="3.5" stroke={forestColor} stroke-width="1.25" stroke-linecap="round" />
+    <line x1="16" y1="28.5" x2="16" y2="31.5" stroke={forestColor} stroke-width="1.25" stroke-linecap="round" />
+    <circle cx="16" cy="16" r="1.5" fill={brassColor} />
+  </svg>
+) : (
+  <div class={`inline-flex items-center gap-3 ${className}`}>
+    <svg width={markSize} height={markSize} viewBox="0 0 32 32" aria-hidden="true" class="shrink-0">
+      <circle cx="16" cy="16" r="13" fill="none" stroke={forestColor} stroke-width="1.75" />
+      <circle cx="16" cy="16" r="9" fill="none" stroke={forestColor} stroke-width="0.75" opacity="0.5" />
+      <line x1="0.5" y1="16" x2="31.5" y2="16" stroke={brassColor} stroke-width="1.75" stroke-linecap="round" />
+      <line x1="16" y1="0.5" x2="16" y2="3.5" stroke={forestColor} stroke-width="1.25" stroke-linecap="round" />
+      <line x1="16" y1="28.5" x2="16" y2="31.5" stroke={forestColor} stroke-width="1.25" stroke-linecap="round" />
+      <circle cx="16" cy="16" r="1.5" fill={brassColor} />
+    </svg>
+    <div class="flex flex-col leading-none">
+      <span class={`font-display tracking-[0.01em] ${wordmarkClass}`} style={`color: ${inkColor};`}>
+        Meridian
+      </span>
+      <span class="font-sans text-[10px] font-semibold tracking-[0.32em] mt-1.5 uppercase" style={`color: ${mutedColor};`}>
+        Strategic
+      </span>
+    </div>
+  </div>
+)}

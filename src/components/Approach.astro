@@ -1,0 +1,56 @@
+---
+const principles = [
+  {
+    num: "01",
+    title: "Senior-only engagement",
+    body: "Every client interaction is with a partner-level advisor. We don't staff pyramids; we run small teams that know your file end to end.",
+  },
+  {
+    num: "02",
+    title: "Decisions over decks",
+    body: "Our deliverables are framed around the choices a leadership team has to make next — not the content of a category template.",
+  },
+  {
+    num: "03",
+    title: "Primary sources first",
+    body: "We read the regulation, the filing, the proxy, the proposed rulemaking — before anyone's commentary. The rest is triangulation.",
+  },
+  {
+    num: "04",
+    title: "Engagement, not entanglement",
+    body: "We scope tightly and leave cleanly. Clients retain full ownership of artifacts, relationships, and internal capability.",
+  },
+];
+---
+
+<section class="bg-(--color-surface-2) border-b border-(--color-line)">
+  <div class="max-w-[1280px] mx-auto px-6 py-24 md:py-36 grid grid-cols-1 md:grid-cols-12 gap-12">
+    <div class="md:col-span-5" data-reveal>
+      <p class="eyebrow mb-4">Approach</p>
+      <h2 class="font-sans text-4xl md:text-5xl leading-[1.08] text-(--color-ink) mb-8 font-light">
+        Small. Senior. <span class="italic text-(--color-forest)">Accountable.</span>
+      </h2>
+
+      <figure class="mt-12 border-l-2 border-(--color-brass) pl-6">
+        <blockquote class="font-serif italic text-2xl md:text-3xl leading-snug text-(--color-ink)">
+          "The firm you hire should be the firm that shows up."
+        </blockquote>
+        <figcaption class="mt-4 text-sm text-(--color-ink-muted) font-serif">
+          — a principle we run on, not a slogan.
+        </figcaption>
+      </figure>
+    </div>
+
+    <div class="md:col-span-6 md:col-start-7 grid grid-cols-1 gap-8" data-reveal>
+      {principles.map((p) => (
+        <article class="border-t border-(--color-line-strong) pt-6 flex gap-6">
+          <span class="font-mono text-sm text-(--color-brass-dark) pt-2 shrink-0 tracking-widest">{p.num}</span>
+          <div>
+            <h3 class="font-sans text-xl md:text-2xl text-(--color-ink) mb-2 font-light">{p.title}</h3>
+            <p class="text-(--color-ink-muted) leading-relaxed font-serif">{p.body}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,121 @@
+---
+// Regulatory timeline — 2024 through 2028. Horizontal on desktop, stacked on mobile.
+// Sourced from publicly available regulation tracking; dates simplified.
+
+const years = [
+  {
+    year: "2024",
+    milestones: [
+      { label: "CSRD Wave 1", detail: "First reporting year (FY 2024) for large EU public-interest entities. ~11,700 companies in scope.", body: "EU" },
+      { label: "SEC Climate Rule", detail: "U.S. climate-related disclosure rule adopted (March 2024). Judicial stay and Congressional review in motion.", body: "US" },
+    ],
+  },
+  {
+    year: "2025",
+    milestones: [
+      { label: "CSRD Wave 1 filings", detail: "First CSRD reports filed. Limited assurance required; double-materiality disclosures live.", body: "EU" },
+      { label: "ISSB S1 / S2 effective", detail: "First annual reporting periods using ISSB standards begin in early-adopter jurisdictions (UK, Australia, Japan, Canada tracking).", body: "Global" },
+      { label: "CA SB 253 phase-in", detail: "California Scope 1 & 2 emissions reporting begins for companies >$1B revenue doing business in the state.", body: "US" },
+    ],
+  },
+  {
+    year: "2026",
+    milestones: [
+      { label: "CSRD Wave 2", detail: "Large EU-based undertakings (non-public-interest) enter scope. Phase-in adds ~40,000 filers.", body: "EU" },
+      { label: "CA SB 261 first filings", detail: "California climate-related financial risk reports due (biennial).", body: "US" },
+    ],
+  },
+  {
+    year: "2027",
+    milestones: [
+      { label: "CSRD Wave 3", detail: "Listed SMEs enter scope with phased simplified standards.", body: "EU" },
+      { label: "CA SB 253 Scope 3", detail: "California Scope 3 emissions reporting begins for in-scope companies.", body: "US" },
+    ],
+  },
+  {
+    year: "2028",
+    milestones: [
+      { label: "CSRD Wave 4", detail: "Large non-EU parent groups with EU turnover >€150M enter scope at the group level.", body: "EU" },
+      { label: "Reasonable assurance", detail: "CSRD assurance standard steps up from limited to reasonable (subject to Commission review).", body: "EU" },
+    ],
+  },
+];
+---
+
+<section class="bg-(--color-surface) border-b border-(--color-line) grain">
+  <div class="max-w-[1280px] mx-auto px-6 py-24 md:py-32">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-10 mb-16 items-end">
+      <div class="md:col-span-7" data-reveal>
+        <p class="eyebrow mb-4">Regulatory horizon</p>
+        <h2 class="font-sans text-4xl md:text-5xl leading-[1.08] text-(--color-ink) font-light">
+          The next five years, on <span class="italic text-(--color-forest)">one page.</span>
+        </h2>
+      </div>
+      <div class="md:col-span-4 md:col-start-9 text-(--color-ink-muted) leading-relaxed font-serif" data-reveal>
+        <p>
+          A compressed view of the dates that will structure sustainability
+          reporting, enforcement, and board decision-making through 2028.
+        </p>
+      </div>
+    </div>
+
+    {/* Desktop horizontal track */}
+    <div class="hidden lg:block relative" data-reveal>
+      {/* Track line */}
+      <div class="absolute left-0 right-0 top-[52px] h-px bg-(--color-line-strong)"></div>
+
+      <div class="grid grid-cols-5 gap-6 relative">
+        {years.map((y, i) => (
+          <div class="relative">
+            {/* Year label + node */}
+            <div class="text-center mb-12">
+              <p class="font-sans text-5xl leading-none text-(--color-ink) mb-4 font-light">{y.year}</p>
+              <div class="relative flex items-center justify-center">
+                <span class="w-3.5 h-3.5 rounded-full bg-(--color-forest) border-4 border-(--color-surface) relative z-10"></span>
+              </div>
+            </div>
+            {/* Milestones */}
+            <div class="space-y-4">
+              {y.milestones.map((m) => (
+                <div class="bg-(--color-bg) border border-(--color-line) rounded-md p-4">
+                  <div class="flex items-center justify-between mb-2">
+                    <span class="font-sans text-sm text-(--color-forest) font-medium leading-tight">{m.label}</span>
+                    <span class="text-[9px] font-mono uppercase tracking-[0.14em] text-(--color-brass-dark)">{m.body}</span>
+                  </div>
+                  <p class="text-xs text-(--color-ink-muted) leading-relaxed font-serif">{m.detail}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    {/* Mobile / tablet — stacked */}
+    <div class="lg:hidden space-y-8 relative pl-6" data-reveal>
+      <div class="absolute left-[9px] top-4 bottom-4 w-px bg-(--color-line-strong)"></div>
+      {years.map((y) => (
+        <div class="relative">
+          <span class="absolute -left-6 top-1 w-3 h-3 rounded-full bg-(--color-forest) border-[3px] border-(--color-surface)"></span>
+          <p class="font-sans text-4xl leading-none text-(--color-ink) mb-4 font-light">{y.year}</p>
+          <div class="space-y-3">
+            {y.milestones.map((m) => (
+              <div class="bg-(--color-bg) border border-(--color-line) rounded-md p-4">
+                <div class="flex items-center justify-between mb-2">
+                  <span class="font-sans text-sm text-(--color-forest) font-medium">{m.label}</span>
+                  <span class="text-[9px] font-mono uppercase tracking-[0.14em] text-(--color-brass-dark)">{m.body}</span>
+                </div>
+                <p class="text-xs text-(--color-ink-muted) leading-relaxed font-serif">{m.detail}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <p class="mt-14 text-xs text-(--color-ink-faint) italic max-w-3xl">
+      Dates reflect publicly announced timelines as of early 2026. Subject to
+      regulator and legislative adjustment; not legal advice.
+    </p>
+  </div>
+</section>
