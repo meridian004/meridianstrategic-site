@@ -1,33 +1,137 @@
 ---
-import Base from "../layouts/Base.astro";
-import Hero from "../components/Hero.astro";
-import PositioningBand from "../components/PositioningBand.astro";
-import StatBand from "../components/StatBand.astro";
-import Capabilities from "../components/Capabilities.astro";
-import EngagementCarousel from "../components/EngagementCarousel.astro";
-import Representation from "../components/Representation.astro";
-import Timeline from "../components/Timeline.astro";
-import Frameworks from "../components/Frameworks.astro";
-import Approach from "../components/Approach.astro";
-import Insights from "../components/Insights.astro";
-import FounderBio from "../components/FounderBio.astro";
-import ContactCTA from "../components/ContactCTA.astro";
+import Maintenance from "../layouts/Maintenance.astro";
 ---
 
-<Base
+<Maintenance
   title="Meridian Strategic"
-  description="ESG strategy, disclosure, and policy advisory. Meridian Strategic helps boards and senior leaders navigate sustainability regulation, stakeholder pressure, and capital reallocation."
+  description="ESG strategy, disclosure, and policy advisory. Meridian Strategic — launching soon."
 >
-  <Hero />
-  <PositioningBand />
-  <StatBand />
-  <Capabilities />
-  <EngagementCarousel />
-  <Representation />
-  <Timeline />
-  <Frameworks />
-  <Approach />
-  <Insights />
-  <FounderBio />
-  <ContactCTA />
-</Base>
+  <div class="page">
+    <div class="grain"></div>
+    <main class="container">
+      <div class="mark" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="56" height="56">
+          <rect width="32" height="32" rx="6" fill="#0A0A0A"/>
+          <circle cx="16" cy="16" r="10" fill="#F9F4E8"/>
+          <path d="M 5 20 Q 10.5 17, 16 20 T 27 20" fill="none" stroke="#A87B3C" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+
+      <h1>Meridian Strategic</h1>
+
+      <div class="rule"></div>
+
+      <p class="lede">
+        ESG strategy, disclosure, and policy advisory for boards
+        and senior leaders navigating what comes next.
+      </p>
+
+      <p class="status">Site launching soon.</p>
+
+      <a href="mailto:wes@meridianstrategic.io" class="contact-link">
+        wes@meridianstrategic.io
+      </a>
+    </main>
+
+    <footer class="foot">
+      <p>&copy; {new Date().getFullYear()} Meridian Strategic LLC</p>
+    </footer>
+  </div>
+
+  <style>
+    .page {
+      position: relative;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: var(--color-bg);
+      overflow: hidden;
+    }
+
+    .grain {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 540px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .mark {
+      margin-bottom: 0.5rem;
+    }
+
+    h1 {
+      font-family: var(--font-serif);
+      font-size: var(--text-display);
+      letter-spacing: var(--tracking-display);
+      font-weight: 400;
+      color: var(--color-ink);
+      line-height: 1.05;
+      margin: 0;
+    }
+
+    .rule {
+      width: 3rem;
+      height: 1px;
+      background: var(--color-line-strong);
+    }
+
+    .lede {
+      font-family: var(--font-serif);
+      font-size: var(--text-body);
+      line-height: 1.7;
+      color: var(--color-ink-muted);
+      margin: 0;
+      max-width: 44ch;
+    }
+
+    .status {
+      font-family: var(--font-sans);
+      font-size: var(--text-small);
+      font-weight: 500;
+      letter-spacing: var(--tracking-eyebrow);
+      text-transform: uppercase;
+      color: var(--color-forest);
+      margin: 0.5rem 0 0;
+    }
+
+    .contact-link {
+      font-family: var(--font-sans);
+      font-size: var(--text-small);
+      color: var(--color-brass);
+      text-decoration: none;
+      border-bottom: 1px solid var(--color-brass-faint);
+      padding-bottom: 1px;
+      transition: color 200ms ease, border-color 200ms ease;
+    }
+    .contact-link:hover {
+      color: var(--color-brass-dark);
+      border-color: var(--color-brass);
+    }
+
+    .foot {
+      position: absolute;
+      bottom: 2rem;
+      z-index: 1;
+    }
+    .foot p {
+      font-family: var(--font-sans);
+      font-size: 0.8125rem;
+      color: var(--color-ink-faint);
+      margin: 0;
+    }
+  </style>
+</Maintenance>

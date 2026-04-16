@@ -1,0 +1,3 @@
+# Maintenance mode — redirect all routes to splash
+/contact    /    302
+/privacy    /    302
